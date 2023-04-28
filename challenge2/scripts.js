@@ -1,3 +1,5 @@
+// script.js
+
 function add(a, b) {
     return a + b;
   }
@@ -8,9 +10,8 @@ function add(a, b) {
   
   function internal() {
     const added = this.add(this.internal.a, this.internal.b);
-    const multiplied = this.multiply(this.internal.a, this.internal.b);
-    console.log(added * this.internal.c);
-    return this;
+    const multiplied = this.multiply(added, this.internal.c);
+    console.log(multiplied);
   }
 
   // Not allowed to change below this
@@ -23,7 +24,7 @@ function add(a, b) {
     },
     add,
     multiply,
-    calculate: internal
+    calculate: internal //(2+4)* 8 = 48
   };
   
   const example2 = {
@@ -34,7 +35,7 @@ function add(a, b) {
     },
     add,
     multiply,
-    calculate: internal
+    calculate: internal //(2+2)*3 = 12
   };
   
   example1.calculate();
